@@ -1,0 +1,59 @@
+{{#>admin}}
+<div
+  id="main-content"
+  class="h-full p-10 w-full bg-gray-50 relative overflow-y-auto lg:ml-64"
+>
+  <div class="flex justify-between">
+    <span class="text-xl font-semibold">All Car Reports</span>
+   
+  </div>
+  <div class="w-full overflow-x-auto">
+    <table class="w-full">
+      <thead>
+        <tr
+          class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600"
+        >
+              <th class='px-4 py-3'>Id</th>
+              <th class='px-4 py-3'>Brand</th>
+              <th class='px-4 py-3'>Model</th>
+              <th class='px-4 py-3'>Price</th>
+              <th class='px-4 py-3'>Year</th>
+              <th class='px-4 py-3'>Ordered By</th>
+          
+        </tr>
+      </thead>
+         <tbody class='bg-white'>
+            {{#each viewData.orders}}
+              <tr class='text-gray-700'>
+                <td class='px-4 py-3 text-ms border'>
+                  <p class='font-semibold text-black'>{{id}}</p>
+                </td>
+                <td class='px-4 py-3 border'>
+                  <div class='flex items-center text-sm'>
+                    <div>
+                      <p class='font-semibold text-black'>{{make}}</p>
+                    </div>
+                  </div>
+                </td>
+                <td class='px-4 py-3 text-ms font-semibold border'>
+                  {{model}}
+                </td>
+                <td
+                  class='px-4 py-3 text-ms font-semibold border'
+                >{{price}}</td>
+                <td class='px-4 py-3 text-sm border'>{{year}}</td>
+                <td class='px-4 py-3 text-sm border'>{{user.userName}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+    </table>
+  </div>
+</div>
+{{/admin}}
+
+
+
+
+        
+
+

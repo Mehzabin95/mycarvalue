@@ -1,0 +1,61 @@
+<html lang='en'>/
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel='stylesheet' href='/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/css/font-awesome.min.css' />
+    <link rel='stylesheet' href='/css/owl.carousel.css' />
+    <link rel='stylesheet' href='/css/owl.theme.default.min.css' />
+    <link rel='stylesheet' href='/css/style.css' />
+    <!-- MAIN CSS -->
+    <link rel='stylesheet' href='/css/loginform.css' />
+    <title>loginform</title>
+  </head>
+  <body>
+    <h1 class='header'>Dump your car here!</h1>
+
+    <form action='/reports/form' class='register' method='post'>
+      <div class='container'>
+        <label for='make'><b>Brand Name</b></label>
+        <input
+          type='text'
+          placeholder='Brand name of your car'
+          name='make'
+          required
+        />
+        {{!  }}
+        <label for='model'><b>Model</b></label>
+        <input
+          type='text'
+          placeholder='Model of your car'
+          name='model'
+          required
+        />
+        <br />
+        <label for='price'><b>Price</b></label>
+        <input type='number' placeholder='price' name='price' required />
+
+        <br />
+        <label for='year'><b>Year</b></label>
+        <input type='number' placeholder='year' name='year' required />
+
+        <br />
+        <label for='lgn'><b>Longitude</b></label>
+        <input type='number' placeholder='longitude' name='lgn' required />
+
+        <br />
+        <label for='lat'><b>Latitude</b></label>
+        <input type='number' placeholder='latitude' name='lat' required />
+        <br />
+        <label for='mileage'><b>Mileage</b></label>
+        <input type='number' placeholder='mileage' name='mileage' required />
+        <br />
+        <label for='image'><b>Image</b></label>
+        <input type='image' placeholder='image' name='image' required />
+
+        <button type='submit'>Submit</button>
+
+      </div>
+    </form>
+  </body>
+</html>

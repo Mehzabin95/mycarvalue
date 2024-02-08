@@ -1,0 +1,81 @@
+{{#>admin}}
+<div
+  id="main-content"
+  class="h-full p-10 w-full bg-gray-50 relative overflow-y-auto lg:ml-64"
+>
+  <div class="flex justify-between">
+    <span class="text-xl font-semibold">Admin Users</span>
+    <button
+      type="button"
+      class="text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+    >
+      <a href="/admin/client/store"> Create </a>
+    </button>
+  </div>
+  <div class="w-full overflow-x-auto">
+    <table class="w-full">
+      <thead>
+        <tr
+          class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600"
+        >
+          <th class="px-4 py-3">Id</th>
+          <th class="px-4 py-3">Name</th>
+          <th class="px-4 py-3">DOB</th>
+          <th class="px-4 py-3">Gender</th>
+          <th class="px-4 py-3">Email</th>
+          <th class="px-4 py-3">Phone</th>
+          <th class="px-4 py-3">Address</th>
+          <th class="px-4 py-3">Action</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        {{#each viewData.admins}}
+        <tr class="text-gray-700">
+          <td class="px-4 py-3 text-ms border">
+            <p class="font-semibold text-black">{{id}}</p>
+          </td>
+          <td class="px-4 py-3 border">
+            <div class="flex items-center text-sm">
+              <div>
+                <p class="font-semibold text-black">{{adminName}}</p>
+              </div>
+            </div>
+          </td>
+          <td class="px-4 py-3 text-ms font-semibold border">
+            {{email}}
+          </td>
+          <td class="px-4 py-3 text-ms font-semibold border">{{gender}}</td>
+          <td class="px-4 py-3 text-sm border">{{email}}</td>
+          <td class="px-4 py-3 text-xs border">
+            <span
+              class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"
+            >
+              {{phoneNumber}}
+            </span>
+          </td>
+          <td class="px-4 py-3 text-sm border">{{address}}</td>
+          <td class="px-4 py-3 text-sm border">
+            <button
+              type="submit"
+              class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+            >
+              <a href="/admin/client/{{clientID}}"> Edit </a>
+            </button>
+          </td>
+          <td>
+            <form action="/admin/client/{{clientID}}" method="POST">
+              <button
+                type="submit"
+                class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+              >
+                Delete
+              </button>
+            </form>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{/admin}}

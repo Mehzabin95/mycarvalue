@@ -1,0 +1,71 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link href='/main.css' rel='stylesheet' />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class='container mx-auto'>
+      <div class='w-full overflow-x-auto mt-20 mb-5'>
+        <table class='w-full'>
+          <thead>
+            <tr
+              class='text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600'
+            >
+              <th class='px-4 py-3'>Id</th>
+              <th class='px-4 py-3'>Brand</th>
+              <th class='px-4 py-3'>Model</th>
+              <th class='px-4 py-3'>Price</th>
+              <th class='px-4 py-3'>Year</th>
+              <th class='px-4 py-3'>Mileage</th>
+              <th class='px-4 py-3'>Posted by</th>
+              <th class='px-4 py-3'>ADD TO CART</th>
+
+            </tr>
+          </thead>
+          <tbody class='bg-white'>
+            {{#each viewData.reports}}
+              <tr class='text-gray-700'>
+                <td class='px-4 py-3 text-ms border'>
+                  <p class='font-semibold text-black'>{{id}}</p>
+                </td>
+                <td class='px-4 py-3 border'>
+                  <div class='flex items-center text-sm'>
+                    <div>
+                      <p class='font-semibold text-black'>{{make}}</p>
+                    </div>
+                  </div>
+                </td>
+                <td class='px-4 py-3 text-ms font-semibold border'>
+                  {{model}}
+                </td>
+                <td
+                  class='px-4 py-3 text-ms font-semibold border'
+                >{{price}}</td>
+                <td class='px-4 py-3 text-sm border'>{{year}}</td>
+                <td class='px-4 py-3 text-xs border'>
+
+                  {{mileage}}
+
+                </td>
+                <td class='px-4 py-3 text-sm border'>{{user.id}}</td>
+                <td class='px-4 py-3 text-sm border'>
+                  <form action='/user/allapprovedcars/{{id}}' method='post'>
+                    <button
+                      class='px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm'
+                    >
+                      add
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <a href='/user/orders' class='p-2 bg-green-500'>View Cart</a>
+    </div>
+  </body>
+</html>

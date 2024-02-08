@@ -1,0 +1,54 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link href='/main.css' rel='stylesheet' />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class='container mx-auto'>
+      <div class='w-full overflow-x-auto mt-20'>
+        <h3 class='text-center'>Cart of:
+          {{user.userName}}</h3>
+        <table class='w-full'>
+          <thead>
+            <tr
+              class='text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600'
+            >
+              <th class='px-4 py-3'>Id</th>
+              <th class='px-4 py-3'>Brand</th>
+              <th class='px-4 py-3'>Model</th>
+              <th class='px-4 py-3'>Price</th>
+              <th class='px-4 py-3'>Year</th>
+
+            </tr>
+          </thead>
+          <tbody class='bg-white'>
+            {{#each viewData.orders}}
+              <tr class='text-gray-700'>
+                <td class='px-4 py-3 text-ms border'>
+                  <p class='font-semibold text-black'>{{id}}</p>
+                </td>
+                <td class='px-4 py-3 border'>
+                  <div class='flex items-center text-sm'>
+                    <div>
+                      <p class='font-semibold text-black'>{{make}}</p>
+                    </div>
+                  </div>
+                </td>
+                <td class='px-4 py-3 text-ms font-semibold border'>
+                  {{model}}
+                </td>
+                <td
+                  class='px-4 py-3 text-ms font-semibold border'
+                >{{price}}</td>
+                <td class='px-4 py-3 text-sm border'>{{year}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

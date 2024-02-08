@@ -1,0 +1,78 @@
+{{#>user}}
+    <main>
+      <section>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-md-12 col-sm-12'>
+              <div class='section-title text-center'>
+                <h1>{{user.userName}}</h1> 
+              </div>
+            </div>         
+          </div>
+      <div class="w-full overflow-x-auto">
+        <div class="flex justify-between">
+          <h2>My Car List</h2>
+          <div>
+            <a href="/user/orders" 
+            class="btn-post btn">View My Cart</a>
+            <a
+              href='/reports/form'
+              class='btn-post btn'
+            >Post New Car</a>
+        </div>
+        </div>
+        
+          <table class="w-full">
+          <thead>
+           <tr
+          class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600"
+        >
+          <th class="px-4 py-3">Id</th>
+          <th class="px-4 py-3">Brand</th>
+          <th class="px-4 py-3">Model</th>
+          <th class="px-4 py-3">Price</th>
+          <th class="px-4 py-3">Year</th>
+          <th class="px-4 py-3">Mileage</th>
+          <th class="px-4 py-3">Posted by</th>
+          <th class="px-4 py-3">Approval Status</th>
+          
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        {{#each viewData.reports}}
+        <tr class="text-gray-700">
+          <td class="px-4 py-3 text-ms border">
+            <p class="font-semibold text-black">{{id}}</p>
+          </td>
+          <td class="px-4 py-3 border">
+            <div class="flex items-center text-sm">
+              <div>
+                <p class="font-semibold text-black">{{make}}</p>
+              </div>
+            </div>
+          </td>
+          <td class="px-4 py-3 text-ms font-semibold border">
+            {{model}}
+          </td>
+          <td class="px-4 py-3 text-ms font-semibold border">{{price}}</td>
+          <td class="px-4 py-3 text-sm border">{{year}}</td>
+          <td class="px-4 py-3 text-xs border">
+           
+              {{mileage}}
+         
+          </td>
+          <td class="px-4 py-3 text-sm border">{{userID}}</td>
+          <td class="px-4 py-3 text-sm border">
+            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm">
+                {{approved}}
+            </span>  </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+      </div>
+        </div>
+      </section>
+    </main>
+{{/user}}
+
