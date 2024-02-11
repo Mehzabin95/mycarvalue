@@ -54,16 +54,16 @@
             </span>
           </td>
           <td class="px-4 py-3 text-sm border">{{address}}</td>
-          <td class="px-4 py-3 text-sm border">
+          {{!-- <td class="px-4 py-3 text-sm border">
             <button
               type="submit"
               class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
             >
               <a href="/admin/client/{{clientID}}"> Edit </a>
             </button>
-          </td>
+          </td> --}}
           <td>
-            <form action="/admin/client/{{clientID}}" method="POST">
+            <form action="/admin/users/{{id}}" method="POST">
               <button
                 type="submit"
                 class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"

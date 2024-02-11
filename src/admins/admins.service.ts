@@ -40,4 +40,19 @@ export class AdminsService {
   //     },
   //   });
   // }
+
+  findOne(id: number) {
+    if (!id) {
+      return null;
+    }
+    return this.repo.findOneBy({ id });
+  }
+
+  async remove(id: number) {
+    const user = await this.findOne(id);
+    if (!user) {
+      throw new NotFoundException('admin not found');
+    }
+    return this.repo.remove(user);
+  }
 }

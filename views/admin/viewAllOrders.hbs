@@ -4,7 +4,7 @@
   class="h-full p-10 w-full bg-gray-50 relative overflow-y-auto lg:ml-64"
 >
   <div class="flex justify-between">
-    <span class="text-xl font-semibold">All Car Reports</span>
+    <span class="text-xl font-semibold">All Ordered Cars</span>
    
   </div>
   <div class="w-full overflow-x-auto">
@@ -19,6 +19,7 @@
               <th class='px-4 py-3'>Price</th>
               <th class='px-4 py-3'>Year</th>
               <th class='px-4 py-3'>Ordered By</th>
+              <th class='px-4 py-3'>action</th>
           
         </tr>
       </thead>
@@ -43,6 +44,16 @@
                 >{{price}}</td>
                 <td class='px-4 py-3 text-sm border'>{{year}}</td>
                 <td class='px-4 py-3 text-sm border'>{{user.userName}}</td>
+              <td>
+                  <form action="/admin/orders/{{id}}" method="POST">
+                      <button
+                          type="submit"
+                          class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+                    >
+                        Delete
+                      </button>
+                  </form>
+              </td>
               </tr>
             {{/each}}
           </tbody>

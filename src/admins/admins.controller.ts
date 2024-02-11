@@ -69,7 +69,10 @@ export class AdminsController {
 
   @Get('/login')
   @Render('admin/adminLogin')
-  async adminLogin() {
+  async adminLogin(@Session() session: any, @Res() res) {
+    if (session.admin) {
+      res.redirect('/admin/profile');
+    }
     return {};
   }
 
@@ -81,6 +84,9 @@ export class AdminsController {
     @Session() session: any,
     @Res() res,
   ) {
+    if (session.admin) {
+      res.redirect('/admin/profile');
+    }
     const admin = await this.adminsAuthService.signin(email, password);
     session.admin = admin;
 
@@ -115,6 +121,12 @@ export class AdminsController {
     };
   }
 
+  @Post('/users/:id')
+  @Redirect('/admin/allusers')
+  async removeuser(@Param('id') id: number) {
+    return this.usersService.remove(+id);
+  }
+
   @Get('/allcars')
   @UseGuards(AdminGaurd)
   @Render('admin/allUserCars')
@@ -141,13 +153,27 @@ export class AdminsController {
 
   @Get('/orders')
   @Render('admin/viewAllOrders')
+  @UseGuards(AdminGaurd)
   async viewOrders() {
     const orders = await this.ordersService.findAll();
-    console.log(orders);
     let viewData = [];
     viewData['orders'] = orders;
     return {
       viewData,
     };
+  }
+
+  @Post('/orders/:id')
+  @Redirect('/admin/orders')
+  @UseGuards(AdminGaurd)
+  async removeorder(@Param('id') id: number) {
+    return this.ordersService.remove(+id);
+  }
+
+  @Post('/:id')
+  @Redirect('/admin/alladmins')
+  @UseGuards(AdminGaurd)
+  async removeadmin(@Param('id') id: number) {
+    return this.adminsService.remove(+id);
   }
 }
